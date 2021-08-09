@@ -12,9 +12,11 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+kind: ClusterSelector
 apiVersion: configmanagement.gke.io/v1
-kind: Repo
 metadata:
-  name: repo
+  name: gcp-prod-non-ha-1
 spec:
-  version: 1.0.0
+  selector:
+    matchLabels:
+      clusterName: gke-prod-us-west2a-1

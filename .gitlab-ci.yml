@@ -12,9 +12,25 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-apiVersion: configmanagement.gke.io/v1
-kind: Repo
-metadata:
-  name: repo
-spec:
-  version: 1.0.0
+workflow:
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "prep"'
+      when: always
+ 
+include:
+  - project: "platform-admins/shared-cd"
+    file: "prepare-asm-label.yaml"
+  - project: "platform-admins/shared-cd"
+    file: "commit-to-config.yaml"
+ 
+stages:
+  - build
+  - commit
+ 
+prepare-asm-build:
+  stage: build
+  extends: .prepare-asm-label
+ 
+commit-to-config:
+  stage: commit
+  extends: .commit-to-config

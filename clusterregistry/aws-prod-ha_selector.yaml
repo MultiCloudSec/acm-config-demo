@@ -12,9 +12,12 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+kind: ClusterSelector
 apiVersion: configmanagement.gke.io/v1
-kind: Repo
 metadata:
-  name: repo
+  name: aws-prod-ha
 spec:
-  version: 1.0.0
+  selector:
+    matchLabels:
+      infrastructure: aws
+      environment: prod

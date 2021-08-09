@@ -12,9 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-apiVersion: configmanagement.gke.io/v1
-kind: Repo
+apiVersion: v1
+kind: Namespace
 metadata:
-  name: repo
-spec:
-  version: 1.0.0
+  name: boa-contacts
