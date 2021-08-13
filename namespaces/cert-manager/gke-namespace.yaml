@@ -1,0 +1,5 @@
+# namespaces/cert-manager/gke-namespace.yaml
+apiVersion: v1
+kind: Namespace
+metadata:
+ name: cert-manager
